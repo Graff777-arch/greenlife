@@ -1,39 +1,41 @@
-const contractAddress = "0x6867858Ff16FE8992F4C68018a4Ad0C1Be300dA1"; // твой контракт
-const abi = [
-  "function donate(string memory region) public payable",
-  "function getTotalDonations() public view returns (uint256)"
+
+const connectButton = document.getElementById("connectButton");
+const donateButton = document.getElementById("donateButton");
+const status = document.getElementById("status");
+
+const CONTRACT_ADDRESS = "0x6867858Ff16FE8992F4C68018a4Ad0C1Be300dA1";
+const ABI = [
+  "function donate(string memory _region) external payable"
 ];
 
-let provider;
-let signer;
-let contract;
+let provider, signer, contract;
 
-document.getElementById("connectButton").addEventListener("click", async () => {
-  if (window.ethereum) {
-    await ethereum.request({ method: "eth_requestAccounts" });
+connectButton.onclick = async () => {
+  if (typeof window.ethereum !== "undefined") {
+    await window.ethereum.request({ method: "eth_requestAccounts" });
     provider = new ethers.providers.Web3Provider(window.ethereum);
     signer = provider.getSigner();
-    contract = new ethers.Contract(contractAddress, abi, signer);
-    document.getElementById("status").innerText = "✅ MetaMask подключен";
+    contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
+    status.innerText = "✅ MetaMask подключен";
   } else {
-    alert("Установите MetaMask!");
+    status.innerText = "❌ Установите MetaMask!";
   }
-});
+};
 
-document.getElementById("donateButton").addEventListener("click", async () => {
+donateButton.onclick = async () => {
   if (!contract) {
-    alert("Сначала подключите MetaMask");
+    status.innerText = "⚠️ Сначала подключите MetaMask";
     return;
   }
-
   try {
     const tx = await contract.donate("Tashkent", {
       value: ethers.utils.parseEther("0.01")
     });
+    status.innerText = "⏳ Ожидание подтверждения...";
     await tx.wait();
-    document.getElementById("status").innerText = "🎉 Спасибо за пожертвование!";
+    status.innerText = "🎉 Пожертвование отправлено!";
   } catch (err) {
     console.error(err);
-    document.getElementById("status").innerText = "❌ Ошибка: пожертвование не отправлено";
+    status.innerText = "❌ Ошибка при отправке";
   }
-});
+};

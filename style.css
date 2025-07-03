@@ -1,70 +1,35 @@
-
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: url('assets/background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #a8e063, #56ab2f);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: backgroundShift 10s infinite alternate;
 }
-
-header {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: rgba(0, 100, 0, 0.6);
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
-
-.logo {
-    width: 80px;
-    height: auto;
+.hero {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.2);
 }
-
-h1 {
-    margin-top: 10px;
-    font-size: 2.8em;
-    animation: fadeInDown 1s ease;
+input, button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
 }
-
-p {
-    font-size: 1.2em;
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
-
-.donate-section, .about-section {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 15px;
-    animation: fadeInUp 1s ease;
-}
-
-.donate-btn {
-    display: inline-block;
-    padding: 12px 30px;
-    font-size: 1.1em;
-    color: #fff;
-    background-color: #28a745;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.donate-btn:hover {
-    background-color: #218838;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(0, 50, 0, 0.7);
-}
-
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+button:hover {
+  background-color: #45a049;
 }

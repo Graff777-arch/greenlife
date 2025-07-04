@@ -1,57 +1,31 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GreenLife — Экологический проект</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenLife — Eco Donation Platform</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <nav class="navbar">
-    <img src="assets/logo.png" alt="GreenLife Logo" class="logo">
-    <ul class="menu">
-      <li><a href="#about">О нас</a></li>
-      <li><a href="#regions">Регионы</a></li>
-      <li><a href="#donate">Пожертвовать</a></li>
-    </ul>
-  </nav>
   <header class="hero">
-    <h1>GreenLife</h1>
-    <p>Поддержите озеленение Узбекистана вместе с нами</p>
-    <button onclick="connectWallet()">Подключить MetaMask</button>
-  </header>
-  <section id="about" class="section about">
-    <h2>О проекте</h2>
-    <p>GreenLife — децентрализованная платформа для прозрачных пожертвований на посадку деревьев и уход за садами в Ташкенте, Сырдарье, Намангане и Андижане.</p>
-  </section>
-  <section id="regions" class="section regions">
-    <h2>Регионы</h2>
-    <div class="cards">
-      <div class="card"><img src="assets/tashkent.jpg" alt="Ташкент"><h3>Ташкент</h3></div>
-      <div class="card"><img src="assets/sirdarya.jpg" alt="Сырдарья"><h3>Сырдарья</h3></div>
-      <div class="card"><img src="assets/namangan.jpg" alt="Наманган"><h3>Наманган</h3></div>
-      <div class="card"><img src="assets/andijan.jpg" alt="Андижан"><h3>Андижан</h3></div>
+    <div class="overlay">
+      <h1>Добро пожаловать в GreenLife</h1>
+      <p>Экологическая платформа пожертвований для озеленения Узбекистана</p>
+      <button onclick="alert('Подключение MetaMask...')">Пожертвовать через MetaMask</button>
     </div>
-  </section>
-  <section id="donate" class="section donate">
-    <h2>Сделать пожертвование</h2>
-    <form onsubmit="donate(event)">
-      <select id="regionSelect" required>
-        <option value="">Выберите регион</option>
-        <option value="Tashkent">Ташкент</option>
-        <option value="Sirdarya">Сырдарья</option>
-        <option value="Namangan">Наманган</option>
-        <option value="Andijan">Андижан</option>
-      </select>
-      <input type="number" id="amount" step="0.01" placeholder="Сумма в ETH" required>
-      <button type="submit">Пожертвовать</button>
-    </form>
-    <p id="status"></p>
-  </section>
-  <footer class="footer">
-    <p>&copy; 2025 GreenLife Team</p>
+  </header>
+  <main>
+    <section class="features">
+      <h2>Наши цели</h2>
+      <ul>
+        <li>🌱 Посадка деревьев в Ташкенте, Намангане и других регионах</li>
+        <li>💚 NFT в благодарность за каждое пожертвование</li>
+        <li>📊 Прозрачная статистика по каждому региону</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 GreenLife team — С любовью к природе 🌍</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/ethers@6.6.2/dist/ethers.umd.min.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>

@@ -1,35 +1,32 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #e8f5e9;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #e6ffe6, #ccffcc);
   color: #2e7d32;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
-.container {
+.hero {
+  padding: 3em;
   text-align: center;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-image: url('assets/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 button {
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 5px;
-  background: #66bb6a;
+  padding: 1em 2em;
+  background: #4caf50;
   color: white;
-  font-size: 16px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
 }
-button:hover {
-  background: #388e3c;
+.features {
+  padding: 2em;
+  background-color: #f0fff0;
 }
-#status {
-  margin-top: 15px;
-  font-weight: bold;
+footer {
+  text-align: center;
+  padding: 2em;
+  background-color: #c8e6c9;
 }
